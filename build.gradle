@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+task BookingTest(type: Test) {
+    dependsOn clean, compileTestJava
+    useTestNG {
+        includeGroups 'Booking'
+        outputDirectory = file("$buildDir/BookingTestsResults")
+        parallel = "classes"
+        threadCount = 1
+        useDefaultListeners = false
+    }
+    scanForTestClasses = false
+}
+test {
+    useTestNG()
+    scanForTestClasses = false //this one
+    reports.html.setDestination(file("$projectDir/GradleReport"))
+}
+tasks.withType(Test) {
+
+    gradle.startParameter.continueOnFailure = true
+    systemProperties = [env        : System.getProperty('env', 'dev'),
+                        contentType: System.getProperty('contentType', 'application/json')]
+}
+dependencies {
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    testCompile(group: 'org.testng', name: 'testng', version: '6.8.8')
+    testCompile(group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0')
+    testCompile(group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13')
+    testCompile(group: 'org.mock-server', name: 'mockserver-netty', version: '3.9.9')
+    testCompile(group: 'org.mock-server', name: 'mockserver-client-java', version: '2.9')
+}
