@@ -45,20 +45,17 @@ Folder Structure:
 * Environment config files (*.properties) to target your service.
 
 These two files should be placed in below directories
-* [Environment config](https://github.com/vinaygupta2050/ApiTestAutomationFramework/tree/master/src/main/resources)
+* [Environment config](https://github.com/vinaygupta2050/ApiTestWithGradle/tree/main/src/test/resources)
 
 ### Target Environments
-The framework is designed so that multiple environments along with their required vairables can be supported and multiple services for each environment can be defined with in folder [Environment config](https://github.com/vinaygupta2050/ApiTestAutomationFramework/tree/master/src/main/resources)
+The framework is designed so that multiple environments along with their required vairables can be supported and multiple services for each environment can be defined with in folder [Environment config](https://github.com/vinaygupta2050/ApiTestWithGradle/tree/main/src/test/resources)
 ```
 bookingUrl=https://restful-booker.herokuapp.com/booking
 userName=admin
 password=password123
 ```
-### Target End Points
-List end points can be written in class [ApiEndPoints](https://github.com/vinaygupta2050/ApiTestAutomationFramework/blob/master/src/main/java/com/api/apiFactory/ApiEndPoints.java)
-
 ### Payloads
-The framework is written in such a way that user needs to create a POJO class for the respective JSON reqruest or payload with which we wanted to hit the end points. The POJO class should be written in folder [entities](https://github.com/vinaygupta2050/ApiTestAutomationFramework/tree/master/src/main/java/com/api/pojo).
+The framework is written in such a way that user needs to create a POJO class for the respective JSON reqruest or payload with which we wanted to hit the end points. The POJO class should be written in folder [entities](https://github.com/vinaygupta2050/ApiTestWithGradle/tree/main/src/test/java/com/api/entities).
 
 ## Writing Test
 
@@ -83,6 +80,8 @@ When you are ready to run your tests from the command line, below are a few exam
 ## Test Results
 
 Once all the test are executed results can be generated in [/ApiTestWithGradle/build/reports/tests/BookingTest/index.html]
+
+![Dashboard](https://github.com/vinaygupta2050/ApiTestWithGradle/blob/main/GeneratedReport.png)
 
 ## Author
 
