@@ -59,7 +59,7 @@ The framework is written in such a way that user needs to create a POJO class fo
 
 ## Writing Test
 
-Once you have finished your configuration you can begin writing your test by extending [BookingBaseTest](https://github.com/vinaygupta2050/ApiTestAutomationFramework/blob/master/src/test/java/com/api/test/BaseTest.java) to your respective test. Below ist sample code.
+Once you have finished your configuration you can begin writing your test by extending [BookingBaseTest](https://github.com/vinaygupta2050/ApiTestWithGradle/blob/main/src/test/java/com/api/tests/BookingBaseTest.java) to your respective test. Below ist sample code.
 ```
     @Test(groups = Categories.BOOKING,dataProviderClass = BookingTestData.class, dataProvider = "newUserData")
     public void shouldCreateBookingId(String firstName,String lastname,int totalprice,boolean depositpaid,String checkin, String checkOut,String additionalneeds) throws Exception {
